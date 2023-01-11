@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ConsoScore</string>
+    <string name="title_activity_main">ConsoScore</string>
+    <string name="scan_button_label">Scanner un article</string>
+</resources>
