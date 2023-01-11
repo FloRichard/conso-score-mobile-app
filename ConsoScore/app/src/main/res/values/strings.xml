@@ -3,4 +3,6 @@
     <string name="title_activity_main">ConsoScore</string>
     <string name="scan_button_label">Scanner un article</string>
     <string name="scanner_text">Scanner le produit pour obtenir son consoscore</string>
+    <string name="serverConnectionErrorMessage">Impossible de se connecter au serveur</string>
+    <string name="productNotFoundErrorMessage">Produit non trouvé</string>
 </resources>
