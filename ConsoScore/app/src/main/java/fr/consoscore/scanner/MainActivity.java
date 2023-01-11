@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         button.setOnClickListener(v -> {
             IntentIntegrator intentIntegrator = new IntentIntegrator(this);
-            intentIntegrator.setPrompt("Scanner le produit à analyser");
+            intentIntegrator.setPrompt(getString(R.string.scanner_text));
             intentIntegrator.setOrientationLocked(false);
             intentIntegrator.setBeepEnabled(true);
             intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.EAN_13);

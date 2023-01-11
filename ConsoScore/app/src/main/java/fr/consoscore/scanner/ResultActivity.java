@@ -13,6 +13,8 @@ public class ResultActivity extends AppCompatActivity {
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String serverUrl = "https://www.google.com/search?q=";
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         String EAN = getIntent().getExtras().getString("EAN", "Error");
@@ -25,7 +27,8 @@ public class ResultActivity extends AppCompatActivity {
                 return true;
             }
         });
-        webView.loadUrl("https://www.google.com/search?q=" + EAN);
+
+        webView.loadUrl(serverUrl +  EAN);
 
     }
 
