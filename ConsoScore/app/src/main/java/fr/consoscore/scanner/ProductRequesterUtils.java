@@ -19,7 +19,7 @@ public class ProductRequesterUtils {
 
     public static ProductAPI.SellerProduct requestProduct(String barcode) throws IOException, ProductNotFoundException {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://toadd")
+                .baseUrl("http://localhost")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ProductAPI productService = retrofit.create(ProductAPI.class);

@@ -33,11 +33,6 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         String EAN = getIntent().getExtras().getString("EAN", "Error");
 
-        ProductAPI.SellerProduct s = new ProductAPI.SellerProduct();
-        s.maker_product = new ProductAPI.Product();
-        s.maker_product.name = "Product Name";
-        renderSellerProduct(s);
-        /*
         Thread thread = new Thread(() -> {
             try {
                 ProductAPI.SellerProduct sellerProduct = ProductRequesterUtils.requestProduct(EAN);
@@ -55,14 +50,22 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
         thread.start();
-         */
+
 
     }
 
     private void renderSellerProduct(ProductAPI.SellerProduct sellerProduct){
         runOnUiThread(() -> {
             TextView nameView = findViewById(R.id.productName);
+            TextView consoScoreView = findViewById(R.id.consoScore);
+            TextView priceView = findViewById(R.id.price);
+            TextView whoseTaxesView = findViewById(R.id.whoseTaxes);
+            TextView carboneFootprintView = findViewById(R.id.carboneFootprint);
             nameView.setText(sellerProduct.maker_product.name);
+            consoScoreView.setText(getString(R.string.consoScoreText, sellerProduct.conso_score));
+            priceView.setText(getString(R.string.priceDisplay, sellerProduct.price));
+            whoseTaxesView.setText(getString(R.string.taxesDisplay, sellerProduct.tax));
+            carboneFootprintView.setText(getString(R.string.carbonFootprintDisplay, sellerProduct.maker_product.carbon_foot_print, sellerProduct.maker_product.quantity_unity));
         });
     }
 

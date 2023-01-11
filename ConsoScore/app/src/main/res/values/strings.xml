@@ -5,4 +5,8 @@
     <string name="scanner_text">Scanner le produit pour obtenir son consoscore</string>
     <string name="serverConnectionErrorMessage">Impossible de se connecter au serveur</string>
     <string name="productNotFoundErrorMessage">Produit non trouvé</string>
+    <string name="consoScoreText">Conso score : %1$f</string>
+    <string name="priceDisplay">Prix : %1$.2f</string>
+    <string name="taxesDisplay">dont %1$.2f€ de taxes</string>
+    <string name="carbonFootprintDisplay">Empreinte carbone : %1$d g / %2$s</string>
 </resources>

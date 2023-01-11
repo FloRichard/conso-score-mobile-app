@@ -7,10 +7,10 @@ import retrofit2.http.Path;
 public interface ProductAPI {
     class SellerProduct {
         public String id;
-        public double price;
+        public float price;
         public double conso_score;
-        public double bar_code;
-        public double tax;
+        public int bar_code;
+        public float tax;
         public Product maker_product;
     }
     class Product {
