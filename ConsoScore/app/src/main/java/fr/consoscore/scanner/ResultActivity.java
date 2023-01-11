@@ -32,10 +32,11 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         String EAN = getIntent().getExtras().getString("EAN", "Error");
+        String EAN2 = "1234";
 
         Thread thread = new Thread(() -> {
             try {
-                ProductAPI.SellerProduct sellerProduct = ProductRequesterUtils.requestProduct(EAN);
+                ProductAPI.SellerProduct sellerProduct = ProductRequesterUtils.requestProduct(EAN2);
                 renderSellerProduct(sellerProduct);
             } catch (IOException e) {
                 runOnUiThread(() -> {
@@ -61,11 +62,16 @@ public class ResultActivity extends AppCompatActivity {
             TextView priceView = findViewById(R.id.price);
             TextView whoseTaxesView = findViewById(R.id.whoseTaxes);
             TextView carboneFootprintView = findViewById(R.id.carboneFootprint);
-            nameView.setText(sellerProduct.maker_product.name);
+            TextView categoryView = findViewById(R.id.category);
+            TextView transportView = findViewById(R.id.transport);
+
+            nameView.setText(sellerProduct.name);
             consoScoreView.setText(getString(R.string.consoScoreText, sellerProduct.conso_score));
             priceView.setText(getString(R.string.priceDisplay, sellerProduct.price));
             whoseTaxesView.setText(getString(R.string.taxesDisplay, sellerProduct.tax));
-            carboneFootprintView.setText(getString(R.string.carbonFootprintDisplay, sellerProduct.maker_product.carbon_foot_print, sellerProduct.maker_product.quantity_unity));
+            carboneFootprintView.setText(getString(R.string.carbonFootprintDisplay, sellerProduct.carbon_foot_print, sellerProduct.quantity_unity));
+            categoryView.setText(sellerProduct.category);
+            transportView.setText(getString(R.string.transportDisplay, sellerProduct.transport));
         });
     }
 

@@ -6,23 +6,18 @@ import retrofit2.http.Path;
 
 public interface ProductAPI {
     class SellerProduct {
-        public String id;
-        public float price;
-        public double conso_score;
         public int bar_code;
-        public float tax;
-        public Product maker_product;
-    }
-    class Product {
-        public String id;
+        public int carbon_foot_print;
+        public String category;
+        public int conso_score;
         public String name;
-        public double price;
-        public double carbon_foot_print;
+        public float price;
+        public String product_id;
         public String quantity_unity;
-        public String category_id;
-        public String expedition_transport_id;
+        public int tax;
+        public String transport;
     }
 
-    @GET("/product/{bar_code}")
+    @GET("/datas/product/{bar_code}")
     Call<SellerProduct> getProduct(@Path("bar_code") String barcode);
 }
