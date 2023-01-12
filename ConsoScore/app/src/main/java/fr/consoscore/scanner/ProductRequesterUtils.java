@@ -25,7 +25,12 @@ public class ProductRequesterUtils {
         ProductAPI productService = retrofit.create(ProductAPI.class);
 
         Call<ProductAPI.SellerProduct> call = productService.getProduct(barcode);
-        Response<ProductAPI.SellerProduct> response = call.execute();
+        Response<ProductAPI.SellerProduct> response;
+        try {
+            response = call.execute();
+        }catch (RuntimeException ex){
+            throw new ProductNotFoundException(barcode);
+        }
         if(response.isSuccessful()){
             return response.body();
         } else {

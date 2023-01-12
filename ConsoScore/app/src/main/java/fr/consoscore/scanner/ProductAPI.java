@@ -6,10 +6,10 @@ import retrofit2.http.Path;
 
 public interface ProductAPI {
     class SellerProduct {
-        public int bar_code;
+        public String bar_code;
         public int carbon_foot_print;
         public String category;
-        public int conso_score;
+        public float conso_score;
         public String name;
         public float price;
         public String product_id;

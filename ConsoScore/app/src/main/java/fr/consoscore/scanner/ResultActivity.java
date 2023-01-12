@@ -32,11 +32,10 @@ public class ResultActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_loading);
         String EAN = getIntent().getExtras().getString("EAN", "Error");
-        String EAN2 = "1234";
 
         Thread thread = new Thread(() -> {
             try {
-                ProductAPI.SellerProduct sellerProduct = ProductRequesterUtils.requestProduct(EAN2);
+                ProductAPI.SellerProduct sellerProduct = ProductRequesterUtils.requestProduct(EAN);
                 renderSellerProduct(sellerProduct);
             } catch (IOException e) {
                 runOnUiThread(() -> {
@@ -53,6 +52,20 @@ public class ResultActivity extends AppCompatActivity {
         thread.start();
 
 
+    }
+
+    public int innerConsoScoreToNumberEquivalentPublicConsoScore(float consoScore){
+        if(consoScore >= 10){
+            return 5;
+        }else if(consoScore <= 10 && consoScore > 7.5){
+            return 4;
+        }else if(consoScore <= 7.5 && consoScore > 5){
+            return 3;
+        }else if(consoScore <= 5 && consoScore > 2.5){
+            return 2;
+        }else{
+            return 1;
+        }
     }
 
     private int getConsoScoreDrawable(int i){
@@ -103,11 +116,11 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
-    private void adaptDependingOnConsoScore(){
-        int conso = 5;
-        findViewById(R.id.mainLayout).setBackgroundResource(getConsoScoreBgDrawable(conso));
-        ((ImageView)findViewById(R.id.consoScoreImage)).setImageResource(getConsoScoreDrawable(conso));
-        ((TextView) findViewById(R.id.priceIndication)).setText(getPriceTextFromConsoScore(conso));
+    private void adaptDependingOnConsoScore(float consoScore){
+        int consoScoreLetterEquivalent = innerConsoScoreToNumberEquivalentPublicConsoScore(consoScore);
+        findViewById(R.id.mainLayout).setBackgroundResource(getConsoScoreBgDrawable(consoScoreLetterEquivalent));
+        ((ImageView)findViewById(R.id.consoScoreImage)).setImageResource(getConsoScoreDrawable(consoScoreLetterEquivalent));
+        ((TextView) findViewById(R.id.priceIndication)).setText(getPriceTextFromConsoScore(consoScoreLetterEquivalent));
     }
 
 
@@ -118,7 +131,7 @@ public class ResultActivity extends AppCompatActivity {
                 finish();
             });
 
-            adaptDependingOnConsoScore();
+            adaptDependingOnConsoScore(sellerProduct.conso_score);
 
             TextView nameView = findViewById(R.id.productName);
             nameView.setText(sellerProduct.name);
