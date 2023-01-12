@@ -108,7 +108,7 @@ public class ResultActivity extends AppCompatActivity {
             case 2:
                 return "";
             case 3:
-                return "Un prix défendant l'écologie";
+                return "";
             case 4:
                 return "";
             case 5:
@@ -131,6 +131,9 @@ public class ResultActivity extends AppCompatActivity {
                 finish();
             });
 
+            float tax = ((float)sellerProduct.tax / 100) * sellerProduct.price;
+            float realPrice = tax + sellerProduct.price;
+
             adaptDependingOnConsoScore(sellerProduct.conso_score);
 
             TextView nameView = findViewById(R.id.productName);
@@ -141,10 +144,10 @@ public class ResultActivity extends AppCompatActivity {
             categoryView.setText(sellerProduct.category);
 
             TextView whoseTaxesView = findViewById(R.id.whoseTaxes);
-            whoseTaxesView.setText(getString(R.string.taxesDisplay, sellerProduct.tax));
+            whoseTaxesView.setText(getString(R.string.taxesDisplay, tax));
 
             TextView priceView = findViewById(R.id.price);
-            priceView.setText(getString(R.string.priceDisplay, sellerProduct.price));
+            priceView.setText(getString(R.string.priceDisplay, realPrice));
 
             TextView carboneFootprintView = findViewById(R.id.carbonFootprintQuantity);
             carboneFootprintView.setText(getString(R.string.carbonFootprintDisplay, sellerProduct.carbon_foot_print));

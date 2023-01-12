@@ -7,7 +7,7 @@
     <string name="productNotFoundErrorMessage">Produit non trouvé</string>
     <string name="consoScoreText">Conso score : %1$d</string>
     <string name="priceDisplay">%1$.2f€</string>
-    <string name="taxesDisplay">%1$d€ de consotaxe</string>
+    <string name="taxesDisplay">%1$.2f€ de consotaxe</string>
     <string name="carbonFootprintDisplay">%1$d g</string>
     <string name="carbonFootprintUnitDisplay">de CO2/%1$s</string>
     <string name="transportDisplay">%1$s</string>

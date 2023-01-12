@@ -2,6 +2,7 @@
 This repository is the mobile app that can read products and give information about the associated conso-score.
 
 
+
 ## Configure
 
 To use this app, you need to run the consoscore back office, and then configure the address of the consoscore server.
