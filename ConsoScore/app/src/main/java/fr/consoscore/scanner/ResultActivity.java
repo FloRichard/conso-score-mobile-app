@@ -87,10 +87,27 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
+    private String getPriceTextFromConsoScore(int i){
+        switch (i){
+            default:
+            case 1:
+                return "Un prix défendant l'écologie";
+            case 2:
+                return "";
+            case 3:
+                return "Un prix défendant l'écologie";
+            case 4:
+                return "";
+            case 5:
+                return "C'est le prix à payer pour un produit toxique pour l'environment";
+        }
+    }
+
     private void adaptDependingOnConsoScore(){
-        int conso = 3;
+        int conso = 1;
         findViewById(R.id.mainLayout).setBackgroundResource(getConsoScoreBgDrawable(conso));
         ((ImageView)findViewById(R.id.consoScoreImage)).setImageResource(getConsoScoreDrawable(conso));
+        ((TextView) findViewById(R.id.priceIndication)).setText(getPriceTextFromConsoScore(conso));
     }
 
 
