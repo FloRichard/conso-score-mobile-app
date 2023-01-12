@@ -104,7 +104,7 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void adaptDependingOnConsoScore(){
-        int conso = 1;
+        int conso = 5;
         findViewById(R.id.mainLayout).setBackgroundResource(getConsoScoreBgDrawable(conso));
         ((ImageView)findViewById(R.id.consoScoreImage)).setImageResource(getConsoScoreDrawable(conso));
         ((TextView) findViewById(R.id.priceIndication)).setText(getPriceTextFromConsoScore(conso));

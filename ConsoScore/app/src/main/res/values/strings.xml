@@ -12,5 +12,5 @@
     <string name="carbonFootprintUnitDisplay">de CO2/%1$s</string>
     <string name="transportDisplay">%1$s</string>
     <string name="back_text">Retour</string>
-    <string name="app_by_gov">Données fournis par le ministères de l’écologie</string>
+    <string name="app_by_gov">Données fournies par le ministère de l’écologie</string>
 </resources>

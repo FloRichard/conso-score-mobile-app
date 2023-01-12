@@ -36,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (intentResult != null) {
-            if (intentResult.getContents() == null) {
-                Toast.makeText(getBaseContext(), "Cancelled", Toast.LENGTH_SHORT).show();
-            } else {
+            if (intentResult.getContents() != null) {
                 Intent myIntent = new Intent(this, ResultActivity.class);
                 myIntent.putExtra("EAN", intentResult.getContents());
                 startActivity(myIntent);
