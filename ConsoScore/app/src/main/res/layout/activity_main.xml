@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:contentDescription="Conso Score"
+        android:contentDescription="@string/app_name"
         android:padding="20dp"
         app:srcCompat="@drawable/logo" />
 
@@ -34,5 +34,12 @@
             android:layout_height="wrap_content"
             android:text="@string/scan_button_label" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center_horizontal"
+        android:text="@string/app_by_gov" />
 
 </LinearLayout>

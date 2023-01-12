@@ -6,8 +6,11 @@
     <string name="serverConnectionErrorMessage">Impossible de se connecter au serveur</string>
     <string name="productNotFoundErrorMessage">Produit non trouvé</string>
     <string name="consoScoreText">Conso score : %1$d</string>
-    <string name="priceDisplay">Prix : %1$.2f€</string>
-    <string name="taxesDisplay">dont %1$d€ de taxes</string>
-    <string name="carbonFootprintDisplay">Empreinte carbone : %1$d g / %2$s</string>
-    <string name="transportDisplay">Moyen de transport : %1$s</string>
+    <string name="priceDisplay">%1$.2f€</string>
+    <string name="taxesDisplay">%1$d€ de consotaxe</string>
+    <string name="carbonFootprintDisplay">%1$d g</string>
+    <string name="carbonFootprintUnitDisplay">de CO2/%1$s</string>
+    <string name="transportDisplay">%1$s</string>
+    <string name="back_text">Retour</string>
+    <string name="app_by_gov">Données fournis par le ministères de l’écologie</string>
 </resources>

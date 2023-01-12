@@ -2,108 +2,243 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
+    android:background="@drawable/layout_bg_a"
+    android:elevation="4dp"
     android:orientation="vertical"
-    android:padding="5dp"
+    android:paddingTop="20dp"
     tools:context=".ResultActivity">
 
-    <TextView
-        android:id="@+id/productName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Product me"
-        android:textSize="40sp"
-        app:autoSizeTextType="uniform" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/back_text"
+                app:srcCompat="@drawable/back_arrow" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/productName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/product_name"
+                    app:autoSizeTextType="none"
+                    tools:text="Product Name" />
+
+                <TextView
+                    android:id="@+id/category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:textAppearance="@style/category"
+                    android:textSize="20sp"
+                    tools:text="Patate" />
+
+            </LinearLayout>
+        </LinearLayout>
 
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="10dp" />
 
-        <TextView
-            android:id="@+id/category"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:textSize="20sp"
-            tools:text="Patate" />
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="60dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/consoScoreImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:scaleType="fitStart"
+                    app:srcCompat="@drawable/consoscore_a" />
+
+                <TextView
+                    android:id="@+id/whoseTaxes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/tax_disp"
+                    android:textSize="28sp"
+                    tools:text="0€ de consotaxe" />
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="20dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:background="@drawable/white_menu"
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <TextView
-            android:id="@+id/consoScore"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            tools:text="Conso score : A"
-            android:textSize="34sp" />
-    </LinearLayout>
+            android:text="Informations"
+            android:textAppearance="@style/information" />
 
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Prix : 144€"
-        android:textSize="34sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Space
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/priceDisplay"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Prix"
+                        android:textAppearance="@style/information_item" />
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/information_item"
+                        tools:text="144€" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/price3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:textAppearance="@style/information_subitem"
+                    tools:text="Un prix qui défend l'écologie" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/carbonFootprintDisplay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Empreinte carbone"
+                    android:textAppearance="@style/information_item" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/carbonFootprintQuantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAppearance="@style/information_item"
+                        tools:text="1000 g" />
+
+                    <TextView
+                        android:id="@+id/carbonFootprintUnits"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="de CO2/kg"
+                        android:textAppearance="@style/information_item" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/transportDisplay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Moyen de transport"
+                    android:textAppearance="@style/information_item" />
+
+                <TextView
+                    android:id="@+id/transport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/information_item"
+                    tools:text="Camion" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/whoseTaxes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            tools:text="dont 10€00 de taxes"
-            android:textSize="28sp" />
+            android:gravity="bottom|center_horizontal"
+            android:text="@string/app_by_gov" />
+
     </LinearLayout>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
-
-    <TextView
-        android:id="@+id/carboneFootprint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Empreinte carbone : 100 g de CO2 / kg"
-        android:textSize="28sp" />
-
-    <TextView
-        android:id="@+id/transport"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="28sp"
-        tools:text="Moyen de transport : Camion" />
 </LinearLayout>

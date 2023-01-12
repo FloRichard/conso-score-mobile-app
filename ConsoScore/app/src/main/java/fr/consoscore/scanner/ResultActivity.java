@@ -2,13 +2,9 @@ package fr.consoscore.scanner;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,6 +18,9 @@ public class ResultActivity extends AppCompatActivity {
         builder.setNegativeButton("Retour", (dialog, item) -> {
             this.finish();
         });
+        builder.setOnDismissListener(dialog -> {
+           this.finish();
+        });
         return builder.create();
     }
 
@@ -30,7 +29,8 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
+
+        setContentView(R.layout.activity_loading);
         String EAN = getIntent().getExtras().getString("EAN", "Error");
         String EAN2 = "1234";
 
@@ -55,22 +55,74 @@ public class ResultActivity extends AppCompatActivity {
 
     }
 
+    private int getConsoScoreDrawable(int i){
+        switch (i){
+            default:
+            case 1:
+                return R.drawable.consoscore_a;
+            case 2:
+                return R.drawable.consoscore_b;
+            case 3:
+                return R.drawable.consoscore_c;
+            case 4:
+                return R.drawable.consoscore_d;
+            case 5:
+                return R.drawable.consoscore_e;
+        }
+    }
+
+    private int getConsoScoreBgDrawable(int i){
+        switch (i){
+            default:
+            case 1:
+                return R.drawable.layout_bg_a;
+            case 2:
+                return R.drawable.layout_bg_b;
+            case 3:
+                return R.drawable.layout_bg_c;
+            case 4:
+                return R.drawable.layout_bg_d;
+            case 5:
+                return R.drawable.layout_bg_e;
+        }
+    }
+
+    private void adaptDependingOnConsoScore(){
+        int conso = 3;
+        findViewById(R.id.mainLayout).setBackgroundResource(getConsoScoreBgDrawable(conso));
+        ((ImageView)findViewById(R.id.consoScoreImage)).setImageResource(getConsoScoreDrawable(conso));
+    }
+
+
     private void renderSellerProduct(ProductAPI.SellerProduct sellerProduct){
         runOnUiThread(() -> {
-            TextView nameView = findViewById(R.id.productName);
-            TextView consoScoreView = findViewById(R.id.consoScore);
-            TextView priceView = findViewById(R.id.price);
-            TextView whoseTaxesView = findViewById(R.id.whoseTaxes);
-            TextView carboneFootprintView = findViewById(R.id.carboneFootprint);
-            TextView categoryView = findViewById(R.id.category);
-            TextView transportView = findViewById(R.id.transport);
+            setContentView(R.layout.activity_result);
+            findViewById(R.id.backButton).setOnClickListener(v -> {
+                finish();
+            });
 
+            adaptDependingOnConsoScore();
+
+            TextView nameView = findViewById(R.id.productName);
             nameView.setText(sellerProduct.name);
-            consoScoreView.setText(getString(R.string.consoScoreText, sellerProduct.conso_score));
-            priceView.setText(getString(R.string.priceDisplay, sellerProduct.price));
-            whoseTaxesView.setText(getString(R.string.taxesDisplay, sellerProduct.tax));
-            carboneFootprintView.setText(getString(R.string.carbonFootprintDisplay, sellerProduct.carbon_foot_print, sellerProduct.quantity_unity));
+
+
+            TextView categoryView = findViewById(R.id.category);
             categoryView.setText(sellerProduct.category);
+
+            TextView whoseTaxesView = findViewById(R.id.whoseTaxes);
+            whoseTaxesView.setText(getString(R.string.taxesDisplay, sellerProduct.tax));
+
+            TextView priceView = findViewById(R.id.price);
+            priceView.setText(getString(R.string.priceDisplay, sellerProduct.price));
+
+            TextView carboneFootprintView = findViewById(R.id.carbonFootprintQuantity);
+            carboneFootprintView.setText(getString(R.string.carbonFootprintDisplay, sellerProduct.carbon_foot_print));
+            TextView carboneFootprintUnitsView = findViewById(R.id.carbonFootprintUnits);
+            carboneFootprintUnitsView.setText(getString(R.string.carbonFootprintUnitDisplay, sellerProduct.quantity_unity));
+
+
+            TextView transportView = findViewById(R.id.transport);
             transportView.setText(getString(R.string.transportDisplay, sellerProduct.transport));
         });
     }
