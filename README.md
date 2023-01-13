@@ -1,7 +1,13 @@
 # conso-score-mobile-app
 This repository is the mobile app that can read products and give information about the associated conso-score.
 
+## Technology
 
+The app is develop in Java Android.
+
+It use the ZXing library for the barcode scanner, and retrofit2 for the communication with the back office.
+
+The app interact with the back office on the root /datas/product/{codebar}
 
 ## Configure
 

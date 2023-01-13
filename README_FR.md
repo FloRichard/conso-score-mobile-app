@@ -6,13 +6,13 @@ Cette application Android permet aux consommateurs de visualiser la fiche descri
 
 L'application est développée en Java Android.
 
-Elle utilise la librairie zxing pour le scanneur de codebar et retrofit2 pour la communication avec le back office.
+Elle utilise la librairie zxing pour le scanneur de code barre et retrofit2 pour la communication avec le back office.
 
-L'application communique avec le backoffice sur le chemin /datas/product/{codebar}/
+L'application communique avec le backoffice sur le chemin /datas/product/{code barre}/
 
 ## Utilisation
 
-L'utilisateur scanne le codebar de l'article, ensuite la fiche du produit est directement affichée sur le téléphone.
+L'utilisateur scanne le code barre de l'article, ensuite la fiche du produit est directement affichée sur le téléphone.
 
 ## Configuration
 
