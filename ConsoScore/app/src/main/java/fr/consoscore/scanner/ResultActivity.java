@@ -104,7 +104,7 @@ public class ResultActivity extends AppCompatActivity {
         switch (i){
             default:
             case 1:
-                return "Un prix défendant l'écologie";
+                return "Un produit défendant l'écologie";
             case 2:
                 return "";
             case 3:

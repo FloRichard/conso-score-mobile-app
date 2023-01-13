@@ -14,7 +14,7 @@ public interface ProductAPI {
         public float price;
         public String product_id;
         public String quantity_unity;
-        public int tax;
+        public float tax;
         public String transport;
     }
 

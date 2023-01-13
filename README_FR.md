@@ -1,6 +1,14 @@
 # Conso-Scan
 
-Cette application permet aux consommateurs de visualiser la fiche descriptive d'un produit (nom, conso-score, taxe conso-score, empreinte carbone, ...) et d’ainsi connaître la taxe qui sera appliqué au produit.
+Cette application Android permet aux consommateurs de visualiser la fiche descriptive d'un produit (nom, conso-score, taxe conso-score, empreinte carbone, ...) et d’ainsi connaître la taxe qui sera appliqué au produit.
+
+## Technologies
+
+L'application est développée en Java Android.
+
+Elle utilise la librairie zxing pour le scanneur de codebar et retrofit2 pour la communication avec le back office.
+
+L'application communique avec le backoffice sur le chemin /datas/product/{codebar}/
 
 ## Utilisation
 
